@@ -1,5 +1,5 @@
 import { Global, Module } from '@nestjs/common';
-import { ConfigModule, ConfigService, ConfigType } from '@nestjs/config';
+import { ConfigType } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import config from 'src/config/config';
 import { PostgresConnectionOptions } from 'typeorm/driver/postgres/PostgresConnectionOptions';
@@ -7,25 +7,22 @@ import { PostgresConnectionOptions } from 'typeorm/driver/postgres/PostgresConne
 @Global()
 @Module({
   imports: [
-    ConfigModule.forRoot({
-      load: [config],
-    }),
     TypeOrmModule.forRootAsync({
-      useFactory: (configService: ConfigService<ConfigType<typeof config>>) => {
-        const dbConfig = configService.get('database');
+      inject: [config.KEY],
+      useFactory: (configService: ConfigType<typeof config>) => {
+        const { host, port, name, user, password } = configService.database;
         const options: PostgresConnectionOptions = {
           type: 'postgres',
-          host: '192.168.200.206', //dbConfig.host,
-          port: 5432, //dbConfig.port,
-          username: 'root', //dbConfig.user,
-          password: 'secret1234', //dbConfig.password,
-          database: 'posware', //dbConfig.name,
+          host,
+          port: +port,
+          username: user,
+          password,
+          database: name,
           entities: [__dirname + '/../**/*.entity{.ts,.js}'],
           synchronize: false,
         };
         return options;
       },
-      inject: [ConfigService],
     }),
   ],
   exports: [TypeOrmModule],
