@@ -2,6 +2,7 @@ import { Global, Module } from '@nestjs/common';
 import { ConfigType } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import config from 'src/config/config';
+//import { User } from 'src/users/entities/user.entity';
 import { PostgresConnectionOptions } from 'typeorm/driver/postgres/PostgresConnectionOptions';
 
 @Global()
@@ -19,6 +20,7 @@ import { PostgresConnectionOptions } from 'typeorm/driver/postgres/PostgresConne
           password,
           database: name,
           entities: [__dirname + '/../**/*.entity{.ts,.js}'],
+          //entities: [User],
           synchronize: false,
         };
         return options;
