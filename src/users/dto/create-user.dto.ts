@@ -15,12 +15,12 @@ export class CreateUserDto {
   @ApiProperty()
   @IsString()
   @IsNotEmpty()
-  readonly middleName: string;
+  readonly middle_name: string;
 
   @ApiProperty()
   @IsString()
   @IsNotEmpty()
-  readonly lastName: string;
+  readonly last_name: string;
 
   @ApiProperty()
   @IsString()

@@ -9,6 +9,7 @@ import * as Joi from 'joi';
 
 import config from './config/config';
 import { envValidator } from './config/env.validator';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -20,6 +21,7 @@ import { envValidator } from './config/env.validator';
     }),
     UsersModule,
     DatabaseModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],

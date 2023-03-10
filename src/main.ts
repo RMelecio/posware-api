@@ -9,6 +9,8 @@ const configService = new ConfigService();
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
+  app.setGlobalPrefix('api');
+
   const config = new DocumentBuilder()
     .setTitle('Posware')
     .setDescription('Posware API')

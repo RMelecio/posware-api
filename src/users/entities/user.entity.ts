@@ -1,12 +1,21 @@
-import { BaseEntity } from 'src/common/entities/base.entity';
-import { Column, Entity } from 'typeorm';
+import {
+  Column,
+  CreateDateColumn,
+  DeleteDateColumn,
+  Entity,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 
-@Entity()
-export class User extends BaseEntity {
-  @Column({ name: 'user' })
+@Entity({ name: 'users' })
+export class User {
+  @PrimaryGeneratedColumn()
+  id: number;
+
+  @Column()
   user: string;
 
-  @Column({ name: 'name' })
+  @Column()
   name: string;
 
   @Column({ name: 'middle_name' })
@@ -20,4 +29,23 @@ export class User extends BaseEntity {
 
   @Column({ name: 'email' })
   email: string;
+
+  @CreateDateColumn({
+    name: 'created_at',
+    type: 'timestamp',
+    default: () => 'CURRENT_TIMESTAMP',
+  })
+  created_at: Date;
+
+  @UpdateDateColumn({
+    name: 'updated_at',
+    type: 'timestamp',
+  })
+  updated_at: Date;
+
+  @DeleteDateColumn({
+    name: 'deleted_at',
+    type: 'timestamp',
+  })
+  deleted_at: Date;
 }
