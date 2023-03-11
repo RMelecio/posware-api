@@ -7,4 +7,6 @@ export const envValidator = {
   DATABASE_NAME: Joi.string().required(),
   DATABASE_USER: Joi.string().required(),
   DATABASE_PASSWORD: Joi.string().required(),
+  API_KET: Joi.string(),
+  JWT_SECRET: Joi.string().required(),
 };

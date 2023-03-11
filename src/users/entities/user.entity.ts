@@ -1,19 +1,15 @@
-import {
-  Column,
-  CreateDateColumn,
-  DeleteDateColumn,
-  Entity,
-  PrimaryGeneratedColumn,
-  UpdateDateColumn,
-} from 'typeorm';
+import { Exclude } from 'class-transformer';
+import { Column, Entity } from 'typeorm';
+import { BaseEntity } from '../../common/entities/base.entity';
 
 @Entity({ name: 'users' })
-export class User {
-  @PrimaryGeneratedColumn()
-  id: number;
+export class User extends BaseEntity {
+  @Column({ name: 'user_name' })
+  user_name: string;
 
+  @Exclude()
   @Column()
-  user: string;
+  password: string;
 
   @Column()
   name: string;
@@ -30,22 +26,6 @@ export class User {
   @Column({ name: 'email' })
   email: string;
 
-  @CreateDateColumn({
-    name: 'created_at',
-    type: 'timestamp',
-    default: () => 'CURRENT_TIMESTAMP',
-  })
-  created_at: Date;
-
-  @UpdateDateColumn({
-    name: 'updated_at',
-    type: 'timestamp',
-  })
-  updated_at: Date;
-
-  @DeleteDateColumn({
-    name: 'deleted_at',
-    type: 'timestamp',
-  })
-  deleted_at: Date;
+  @Column()
+  role: number;
 }

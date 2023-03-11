@@ -1,6 +1,7 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
+import * as bcrypt from 'bcrypt';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { User } from './entities/user.entity';
@@ -10,8 +11,10 @@ export class UsersService {
   constructor(
     @InjectRepository(User) private userRepository: Repository<User>,
   ) {}
-  create(data: CreateUserDto) {
+  async create(data: CreateUserDto) {
+    data.password = await bcrypt.hash(data.password, 10);
     const newUser = this.userRepository.save(data);
+    delete (await newUser).password;
     return newUser;
   }
 
@@ -33,7 +36,9 @@ export class UsersService {
       throw new NotFoundException(`User id: ${id} not Found`);
     }
     this.userRepository.merge(user, data);
-    return this.userRepository.save(user);
+    const newUser = this.userRepository.save(user);
+    delete (await newUser).password;
+    return newUser;
   }
 
   async remove(id: number) {
@@ -42,5 +47,13 @@ export class UsersService {
       throw new NotFoundException(`User id: ${id} not Found`);
     }
     return this.userRepository.softDelete(id);
+  }
+
+  async findByUserName(userName: string) {
+    const user = await this.userRepository.findOneBy({ user_name: userName });
+    if (!user) {
+      throw new NotFoundException(`User: ${userName} not Found`);
+    }
+    return user;
   }
 }
