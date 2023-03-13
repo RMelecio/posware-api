@@ -8,7 +8,6 @@ import config from '../config/config';
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy, 'jwt') {
     constructor(@Inject(config.KEY) configService: ConfigType<typeof config>) {
-        console.log("JWR");
         super({
             jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
             ignoreExpiration: false,
@@ -17,7 +16,6 @@ export class JwtStrategy extends PassportStrategy(Strategy, 'jwt') {
     }
 
     async validate(payload: PayloadToken) {
-        console.log("aqui");
         return payload;
     }
 }
