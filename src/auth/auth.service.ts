@@ -24,7 +24,6 @@ export class AuthService {
 
   generateJWT(user: User) {
     const payload: PayloadToken = { role: user.role, sub: user.id };
-    delete user.password;
     return {
       access_toke: this.jwtService.sign(payload),
       user,
