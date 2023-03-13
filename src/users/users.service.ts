@@ -25,7 +25,7 @@ export class UsersService {
   async findOne(id: number) {
     const user = await this.userRepository.findOneBy({ id: id });
     if (!user) {
-      throw new NotFoundException(`User id: ${id} not Found`);
+      throw new NotFoundException(`User id: ${id} not found`);
     }
     return user;
   }
@@ -33,7 +33,7 @@ export class UsersService {
   async update(id: number, data: UpdateUserDto) {
     const user = await this.userRepository.findOneBy({ id: id });
     if (!user) {
-      throw new NotFoundException(`User id: ${id} not Found`);
+      throw new NotFoundException(`User id: ${id} not found`);
     }
     data.password = await bcrypt.hash(data.password, 10);
     this.userRepository.merge(user, data);
@@ -44,7 +44,7 @@ export class UsersService {
   async remove(id: number) {
     const user = await this.userRepository.findOneBy({ id: id });
     if (!user) {
-      throw new NotFoundException(`User id: ${id} not Found`);
+      throw new NotFoundException(`User id: ${id} not found`);
     }
     return this.userRepository.softDelete(id);
   }
@@ -52,7 +52,7 @@ export class UsersService {
   async findByUserName(userName: string) {
     const user = await this.userRepository.findOneBy({ user_name: userName });
     if (!user) {
-      throw new NotFoundException(`User: ${userName} not Found`);
+      throw new NotFoundException(`User: ${userName} not found`);
     }
     return user;
   }

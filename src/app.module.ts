@@ -10,6 +10,7 @@ import * as Joi from 'joi';
 import config from './config/config';
 import { envValidator } from './config/env.validator';
 import { AuthModule } from './auth/auth.module';
+import { CompaniesModule } from './companies/companies.module';
 
 @Module({
   imports: [
@@ -22,6 +23,7 @@ import { AuthModule } from './auth/auth.module';
     UsersModule,
     DatabaseModule,
     AuthModule,
+    CompaniesModule,
   ],
   controllers: [AppController],
   providers: [AppService],
