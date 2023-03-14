@@ -1,8 +1,9 @@
 {
 	"info": {
-		"_postman_id": "d6acb95b-51c7-41f8-a605-ac4508452055",
+		"_postman_id": "fc95d283-93fa-4dc1-8b4b-ac24177068d0",
 		"name": "Posware-api",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10457905"
 	},
 	"item": [
 		{
@@ -41,7 +42,199 @@
 					"name": "update",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "findAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Nest}}/api/users",
+							"host": [
+								"{{Nest}}"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Offices",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoxLCJzdWIiOjEsImlhdCI6MTY3ODc3MjU4MywiZXhwIjoxNjc4ODU4OTgzfQ.pfE3QHNXpdu8RDBHzXRaQ8eV5Vh5isx17N1QywtTZS8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"alias\": \"Principal\",\r\n  \"name\": \"Officina Principal\",\r\n  \"office_type_id\": 1,\r\n  \"address\": \"garibaldi\",\r\n  \"settlement\": \"centro\",\r\n  \"location\": \"zapopan\",\r\n  \"postal_code\": \"44750\",\r\n  \"city\": \"zapopan\",\r\n  \"state\": \"jalisco\",\r\n  \"country\": \"mexico\",\r\n  \"mobil\": \"333\",\r\n  \"email\": \"dfgdfgdfg\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Nest}}/api/offices",
+							"host": [
+								"{{Nest}}"
+							],
+							"path": [
+								"api",
+								"offices"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findAll",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoxLCJzdWIiOjEsImlhdCI6MTY3ODc3MjU4MywiZXhwIjoxNjc4ODU4OTgzfQ.pfE3QHNXpdu8RDBHzXRaQ8eV5Vh5isx17N1QywtTZS8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Nest}}/api/offices",
+							"host": [
+								"{{Nest}}"
+							],
+							"path": [
+								"api",
+								"offices"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findOne",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoxLCJzdWIiOjEsImlhdCI6MTY3ODc3MjU4MywiZXhwIjoxNjc4ODU4OTgzfQ.pfE3QHNXpdu8RDBHzXRaQ8eV5Vh5isx17N1QywtTZS8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Nest}}/api/offices/2",
+							"host": [
+								"{{Nest}}"
+							],
+							"path": [
+								"api",
+								"offices",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoxLCJzdWIiOjEsImlhdCI6MTY3ODc3MjU4MywiZXhwIjoxNjc4ODU4OTgzfQ.pfE3QHNXpdu8RDBHzXRaQ8eV5Vh5isx17N1QywtTZS8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"alias\": \"Principal\",\r\n  \"name\": \"Officina Principal\",\r\n  \"office_type_id\": 3,\r\n  \"address\": \"garibaldi\",\r\n  \"settlement\": \"centro\",\r\n  \"location\": \"zapopan\",\r\n  \"postal_code\": \"44750\",\r\n  \"city\": \"zapopan\",\r\n  \"state\": \"jalisco\",\r\n  \"country\": \"mexico\",\r\n  \"mobil\": \"333\",\r\n  \"email\": \"dfgdfgdfg\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Nest}}/api/offices/1",
+							"host": [
+								"{{Nest}}"
+							],
+							"path": [
+								"api",
+								"offices",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoxLCJzdWIiOjEsImlhdCI6MTY3ODc3MjU4MywiZXhwIjoxNjc4ODU4OTgzfQ.pfE3QHNXpdu8RDBHzXRaQ8eV5Vh5isx17N1QywtTZS8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{Nest}}/api/offices/7",
+							"host": [
+								"{{Nest}}"
+							],
+							"path": [
+								"api",
+								"offices",
+								"7"
+							]
+						}
 					},
 					"response": []
 				}

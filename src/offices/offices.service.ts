@@ -1,26 +1,61 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { plainToClass } from 'class-transformer';
+import { Repository } from 'typeorm';
 import { CreateOfficeDto } from './dto/create-office.dto';
 import { UpdateOfficeDto } from './dto/update-office.dto';
+import { Office } from './entities/office.entity';
+import { OfficeTypes } from './entities/officeTypes.entity';
 
 @Injectable()
 export class OfficesService {
-  create(createOfficeDto: CreateOfficeDto) {
-    return 'This action adds a new office';
+  constructor(@InjectRepository(Office) private readonly officeRepository: Repository<Office>,
+  @InjectRepository(OfficeTypes) private readonly officeTypeRepository: Repository<OfficeTypes>) {}
+  async create(data: CreateOfficeDto) {
+    const officeType = await this.officeTypeRepository.findOneBy({ id: data.office_type_id });
+    if (!officeType) {
+      throw new NotFoundException(`office type id: ${data.office_type_id} not found`);
+    }
+    delete data.office_type_id;
+    const office = plainToClass(Office, data);
+    office.office_type = officeType;
+    return this.officeRepository.save(office);
   }
 
   findAll() {
-    return `This action returns all offices`;
+    return this.officeRepository.find();  
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} office`;
+  async findOne(id: number) {
+    const office = await this.officeRepository.findOneBy({ id: id });
+    if (!office) {
+      throw new NotFoundException(`office id:${id} not found`);
+    }
+    return office;
   }
 
-  update(id: number, updateOfficeDto: UpdateOfficeDto) {
-    return `This action updates a #${id} office`;
+  async update(id: number, data: UpdateOfficeDto) {
+    const officeToUpdate = await this.officeRepository.findOneBy({ id: id });
+    if (!officeToUpdate) {
+      throw new NotFoundException(`office id:${id} not found`);
+    }
+    const officeType = await this.officeTypeRepository.findOneBy({ id: data.office_type_id });
+    if (!officeType) {
+      throw new NotFoundException(`office type id: ${data.office_type_id} not found`);
+    }
+    console.log(officeType);
+    delete data.office_type_id;
+    const officeData = plainToClass(Office, data);
+    officeData.office_type = officeType;
+    this.officeRepository.merge(officeToUpdate, officeData);
+    return this.officeRepository.save(officeToUpdate);
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} office`;
+  async remove(id: number) {
+    const office = await this.officeRepository.findOneBy({ id: id });
+    if (!office) {
+      throw new NotFoundException(`office id:${id} not found`);
+    }
+    return this.officeRepository.softDelete(id);
   }
 }
