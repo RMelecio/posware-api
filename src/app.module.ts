@@ -12,6 +12,7 @@ import { envValidator } from './config/env.validator';
 import { AuthModule } from './auth/auth.module';
 import { CompaniesModule } from './companies/companies.module';
 import { OfficesModule } from './offices/offices.module';
+import { WarehouseModule } from './warehouse/warehouse.module';
 
 @Module({
   imports: [
@@ -26,6 +27,7 @@ import { OfficesModule } from './offices/offices.module';
     AuthModule,
     CompaniesModule,
     OfficesModule,
+    WarehouseModule,
   ],
   controllers: [AppController],
   providers: [AppService],

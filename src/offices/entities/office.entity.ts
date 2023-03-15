@@ -1,18 +1,18 @@
-import { Column, Entity, JoinColumn, ManyToOne } from "typeorm";
+import { Column, Entity, JoinColumn, ManyToOne } from 'typeorm';
 import { BaseEntity } from '../../common/entities/base.entity';
-import { OfficeTypes } from "./officeTypes.entity";
+import { OfficeType } from './office-type.entity';
 
-@Entity({ name: 'offices'})
+@Entity({ name: 'offices' })
 export class Office extends BaseEntity {
   @Column({ length: 50 })
   alias: string;
 
   @Column()
-  name: string
-  
-  @ManyToOne(() => OfficeTypes, (officeType) => officeType.id)
-  @JoinColumn({ name: "office_type_id" })
-  office_type: OfficeTypes;
+  name: string;
+
+  @ManyToOne(() => OfficeType, (officeType) => officeType.id)
+  @JoinColumn({ name: 'office_type_id' })
+  office_type: OfficeType;
 
   @Column()
   address: string;
@@ -40,5 +40,4 @@ export class Office extends BaseEntity {
 
   @Column({ length: 100 })
   email: string;
-
 }

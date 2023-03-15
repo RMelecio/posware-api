@@ -1,6 +1,5 @@
-import { ApiProperty } from "@nestjs/swagger";
-import { Exclude } from "class-transformer";
-import { IsNotEmpty, IsNumber, IsString } from "class-validator";
+import { ApiProperty } from '@nestjs/swagger';
+import { IsNotEmpty, IsNumber, IsString } from 'class-validator';
 
 export class CreateOfficeDto {
   @ApiProperty()
@@ -11,12 +10,12 @@ export class CreateOfficeDto {
   @ApiProperty()
   @IsString()
   @IsNotEmpty()
-  name: string
-  
+  name: string;
+
   @ApiProperty()
   @IsNumber()
   @IsNotEmpty()
-  office_type_id: number
+  office_type_id: number;
 
   @ApiProperty()
   @IsString()

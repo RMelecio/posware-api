@@ -1,9 +1,8 @@
 {
 	"info": {
-		"_postman_id": "fc95d283-93fa-4dc1-8b4b-ac24177068d0",
+		"_postman_id": "c1fcbb0a-4499-412a-8adf-cc0ae40a2ccd",
 		"name": "Posware-api",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "10457905"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
@@ -55,8 +54,55 @@
 			"name": "Users",
 			"item": [
 				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoxLCJzdWIiOjEsImlhdCI6MTY3ODgxOTkxOSwiZXhwIjoxNjc4OTA2MzE5fQ.M7OenqPKByGB6IixkBNwDPPbhKlp_DPeZt8d9HVvAbI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"user_name\": \"string\",\n  \"password\": \"string\",\n  \"name\": \"string\",\n  \"middle_name\": \"string\",\n  \"last_name\": \"string\",\n  \"email\": \"string\",\n  \"mobil\": \"string\",\n  \"role\": 0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Nest}}/api/users",
+							"host": [
+								"{{Nest}}"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "findAll",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoxLCJzdWIiOjEsImlhdCI6MTY3ODgxOTkxOSwiZXhwIjoxNjc4OTA2MzE5fQ.M7OenqPKByGB6IixkBNwDPPbhKlp_DPeZt8d9HVvAbI",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -67,6 +113,102 @@
 							"path": [
 								"api",
 								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findOne",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoxLCJzdWIiOjEsImlhdCI6MTY3ODgxOTkxOSwiZXhwIjoxNjc4OTA2MzE5fQ.M7OenqPKByGB6IixkBNwDPPbhKlp_DPeZt8d9HVvAbI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Nest}}/api/users/1",
+							"host": [
+								"{{Nest}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoxLCJzdWIiOjEsImlhdCI6MTY3ODgxOTkxOSwiZXhwIjoxNjc4OTA2MzE5fQ.M7OenqPKByGB6IixkBNwDPPbhKlp_DPeZt8d9HVvAbI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"user_name\": \"string222\",\n  \"password\": \"string\",\n  \"name\": \"string\",\n  \"middle_name\": \"string\",\n  \"last_name\": \"string\",\n  \"email\": \"string\",\n  \"mobil\": \"string\",\n  \"role\": 0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Nest}}/api/users/12",
+							"host": [
+								"{{Nest}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"12"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoxLCJzdWIiOjEsImlhdCI6MTY3ODgxOTkxOSwiZXhwIjoxNjc4OTA2MzE5fQ.M7OenqPKByGB6IixkBNwDPPbhKlp_DPeZt8d9HVvAbI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{Nest}}/api/users/8",
+							"host": [
+								"{{Nest}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"8"
 							]
 						}
 					},
@@ -158,14 +300,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{Nest}}/api/offices/2",
+							"raw": "{{Nest}}/api/offices/5",
 							"host": [
 								"{{Nest}}"
 							],
 							"path": [
 								"api",
 								"offices",
-								"2"
+								"5"
 							]
 						}
 					},

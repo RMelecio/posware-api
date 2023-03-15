@@ -3,18 +3,28 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { plainToClass } from 'class-transformer';
 import { Repository } from 'typeorm';
 import { CreateOfficeDto } from './dto/create-office.dto';
+import { TestOfficeDto } from './dto/response-office.dto';
 import { UpdateOfficeDto } from './dto/update-office.dto';
 import { Office } from './entities/office.entity';
-import { OfficeTypes } from './entities/officeTypes.entity';
+import { OfficeType } from './entities/officeType.entity';
 
 @Injectable()
 export class OfficesService {
-  constructor(@InjectRepository(Office) private readonly officeRepository: Repository<Office>,
-  @InjectRepository(OfficeTypes) private readonly officeTypeRepository: Repository<OfficeTypes>) {}
+  constructor(
+    @InjectRepository(Office)
+    private readonly officeRepository: Repository<Office>,
+    @InjectRepository(OfficeType)
+    private readonly officeTypeRepository: Repository<OfficeType>,
+  ) {}
+
   async create(data: CreateOfficeDto) {
-    const officeType = await this.officeTypeRepository.findOneBy({ id: data.office_type_id });
+    const officeType = await this.officeTypeRepository.findOneBy({
+      id: data.office_type_id,
+    });
     if (!officeType) {
-      throw new NotFoundException(`office type id: ${data.office_type_id} not found`);
+      throw new NotFoundException(
+        `office type id: ${data.office_type_id} not found`,
+      );
     }
     delete data.office_type_id;
     const office = plainToClass(Office, data);
@@ -23,15 +33,21 @@ export class OfficesService {
   }
 
   findAll() {
-    return this.officeRepository.find();  
+    return this.officeRepository.find({});
   }
 
   async findOne(id: number) {
-    const office = await this.officeRepository.findOneBy({ id: id });
-    if (!office) {
+    const officeFound = await this.officeRepository.findOne({
+      where: { id: id },
+      relations: ['office_type'],
+    });
+    if (!officeFound) {
       throw new NotFoundException(`office id:${id} not found`);
     }
+
+    const office = plainToClass(TestOfficeDto, officeFound);
     return office;
+    //return officeFound;
   }
 
   async update(id: number, data: UpdateOfficeDto) {
@@ -39,9 +55,13 @@ export class OfficesService {
     if (!officeToUpdate) {
       throw new NotFoundException(`office id:${id} not found`);
     }
-    const officeType = await this.officeTypeRepository.findOneBy({ id: data.office_type_id });
+    const officeType = await this.officeTypeRepository.findOneBy({
+      id: data.office_type_id,
+    });
     if (!officeType) {
-      throw new NotFoundException(`office type id: ${data.office_type_id} not found`);
+      throw new NotFoundException(
+        `office type id: ${data.office_type_id} not found`,
+      );
     }
     console.log(officeType);
     delete data.office_type_id;
