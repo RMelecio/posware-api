@@ -1,5 +1,6 @@
 import { BaseEntity } from '../../common/entities/base.entity';
-import { Column, Entity } from 'typeorm';
+import { Column, Entity, OneToMany } from 'typeorm';
+import { Office } from '../../offices/entities/office.entity';
 
 @Entity({ name: 'companies' })
 export class Company extends BaseEntity {
@@ -9,11 +10,14 @@ export class Company extends BaseEntity {
   @Column({ name: 'trade_name' })
   trade_name: string;
 
-  @Column({ length: 20 })
+  @Column({ length: 20, unique: true })
   rfc: string;
 
   @Column({ name: 'fiscal_regime' })
   fiscal_regime: string;
+
+  @OneToMany(() => Office, (office) => office.id)
+  offices: Office[];
 
   @Column()
   address: string;

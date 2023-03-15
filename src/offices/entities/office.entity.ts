@@ -1,6 +1,9 @@
-import { Column, Entity, JoinColumn, ManyToOne } from 'typeorm';
+import { Column, Entity, JoinColumn, ManyToOne, OneToMany } from 'typeorm';
+
+import { Warehouse } from '../../warehouse/entities/warehouse.entity';
 import { BaseEntity } from '../../common/entities/base.entity';
 import { OfficeType } from './office-type.entity';
+import { Company } from '../../companies/entities/company.entity';
 
 @Entity({ name: 'offices' })
 export class Office extends BaseEntity {
@@ -13,6 +16,13 @@ export class Office extends BaseEntity {
   @ManyToOne(() => OfficeType, (officeType) => officeType.id)
   @JoinColumn({ name: 'office_type_id' })
   office_type: OfficeType;
+  
+  @OneToMany(() => Warehouse, (warehouse) => warehouse.id)
+  warehouses: Warehouse[];
+
+  @ManyToOne(() => Company, (company) => company.id)
+  @JoinColumn({ name: 'company_id'})
+  company: Company;
 
   @Column()
   address: string;

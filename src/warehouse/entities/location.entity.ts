@@ -1,3 +1,4 @@
+import { boolean } from 'joi';
 import { Column, Entity, JoinColumn, ManyToOne } from 'typeorm';
 
 import { BaseEntity } from '../../common/entities/base.entity';
@@ -22,6 +23,12 @@ export class WarehouseLocation extends BaseEntity {
 
   @Column({ length: 20 })
   bin: string;
+
+  @Column({ name: 'is_default', default: false })
+  is_default: boolean;
+
+  @Column({ unique: true})
+  hash: string;
 
   @ManyToOne(() => Warehouse, (warehouse) => warehouse.id)
   @JoinColumn({ name: 'warehouse_id' })
