@@ -27,7 +27,7 @@ export class WarehouseLocation extends BaseEntity {
   @Column({ name: 'is_default', default: false })
   is_default: boolean;
 
-  @Column({ unique: true})
+  @Column({ unique: true })
   hash: string;
 
   @ManyToOne(() => Warehouse, (warehouse) => warehouse.id)

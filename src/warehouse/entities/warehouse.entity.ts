@@ -14,7 +14,7 @@ export class Warehouse extends BaseEntity {
   is_active: boolean;
 
   @ManyToOne(() => Office, (office) => office.id)
-  @JoinColumn({ name: 'office_id'})
+  @JoinColumn({ name: 'office_id' })
   office: Office;
 
   @ManyToOne(() => WarehouseType, (warehouseType) => warehouseType.id)

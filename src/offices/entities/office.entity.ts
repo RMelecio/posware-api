@@ -16,12 +16,12 @@ export class Office extends BaseEntity {
   @ManyToOne(() => OfficeType, (officeType) => officeType.id)
   @JoinColumn({ name: 'office_type_id' })
   office_type: OfficeType;
-  
+
   @OneToMany(() => Warehouse, (warehouse) => warehouse.id)
   warehouses: Warehouse[];
 
   @ManyToOne(() => Company, (company) => company.id)
-  @JoinColumn({ name: 'company_id'})
+  @JoinColumn({ name: 'company_id' })
   company: Company;
 
   @Column()
