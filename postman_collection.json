@@ -1,8 +1,9 @@
 {
 	"info": {
-		"_postman_id": "c1fcbb0a-4499-412a-8adf-cc0ae40a2ccd",
+		"_postman_id": "61ab45b3-f6a8-47c4-9f6f-c8d25df409a1",
 		"name": "Posware-api",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10457905"
 	},
 	"item": [
 		{
@@ -16,7 +17,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoxLCJzdWIiOjEsImlhdCI6MTY3ODczMTY0NiwiZXhwIjoxNjc4ODE4MDQ2fQ.TmKvs7efb8-hWQK_inMILKnpc9dMRQlIXlpOn6kOyoM",
+									"value": "{{JWT}}",
 									"type": "string"
 								}
 							]
@@ -24,14 +25,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{Nest}}/api/companies/1",
+							"raw": "{{Nest}}/api/companies/5",
 							"host": [
 								"{{Nest}}"
 							],
 							"path": [
 								"api",
 								"companies",
-								"1"
+								"5"
 							]
 						}
 					},
@@ -40,10 +41,37 @@
 				{
 					"name": "update",
 					"request": {
-						"method": "GET",
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 3,\r\n    \"created_at\": \"2023-03-18T09:08:29.768Z\",\r\n    \"updated_at\": \"2023-03-18T09:08:29.768Z\",\r\n    \"deleted_at\": null,\r\n    \"alias\": \"Empresa A\",\r\n    \"trade_name\": \"Empresa Internacion de Ventas\",\r\n    \"rfc\": \"XAXX010101000 \",\r\n    \"fiscal_regime\": \"601\",\r\n    \"address\": \"Av. Hidalgo 1000\",\r\n    \"settlement\": \"Centro\",\r\n    \"location\": \"Guadalajara\",\r\n    \"postal_code\": \"44750\",\r\n    \"city\": \"Guadalajara\",\r\n    \"state\": \"Jalisco\",\r\n    \"country\": \"México\",\r\n    \"mobil\": \"3333333333\",\r\n    \"email\": \"empresa@correo.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": ""
+							"raw": "{{Nest}}/api/companies/3",
+							"host": [
+								"{{Nest}}"
+							],
+							"path": [
+								"api",
+								"companies",
+								"3"
+							]
 						}
 					},
 					"response": []
@@ -98,7 +126,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoxLCJzdWIiOjEsImlhdCI6MTY3ODgxOTkxOSwiZXhwIjoxNjc4OTA2MzE5fQ.M7OenqPKByGB6IixkBNwDPPbhKlp_DPeZt8d9HVvAbI",
+									"value": "{{JWT}}",
 									"type": "string"
 								}
 							]
@@ -126,7 +154,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoxLCJzdWIiOjEsImlhdCI6MTY3ODgxOTkxOSwiZXhwIjoxNjc4OTA2MzE5fQ.M7OenqPKByGB6IixkBNwDPPbhKlp_DPeZt8d9HVvAbI",
+									"value": "{{JWT}}",
 									"type": "string"
 								}
 							]
@@ -134,14 +162,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{Nest}}/api/users/1",
+							"raw": "{{Nest}}/api/users/9",
 							"host": [
 								"{{Nest}}"
 							],
 							"path": [
 								"api",
 								"users",
-								"1"
+								"9"
 							]
 						}
 					},
@@ -227,7 +255,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoxLCJzdWIiOjEsImlhdCI6MTY3ODc3MjU4MywiZXhwIjoxNjc4ODU4OTgzfQ.pfE3QHNXpdu8RDBHzXRaQ8eV5Vh5isx17N1QywtTZS8",
+									"value": "{{JWT}}",
 									"type": "string"
 								}
 							]
@@ -236,7 +264,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"alias\": \"Principal\",\r\n  \"name\": \"Officina Principal\",\r\n  \"office_type_id\": 1,\r\n  \"address\": \"garibaldi\",\r\n  \"settlement\": \"centro\",\r\n  \"location\": \"zapopan\",\r\n  \"postal_code\": \"44750\",\r\n  \"city\": \"zapopan\",\r\n  \"state\": \"jalisco\",\r\n  \"country\": \"mexico\",\r\n  \"mobil\": \"333\",\r\n  \"email\": \"dfgdfgdfg\"\r\n}",
+							"raw": "{\r\n  \"alias\": \"Principal\",\r\n  \"name\": \"Officina Principal\",\r\n  \"office_type_id\": 8,\r\n  \"address\": \"garibaldi\",\r\n  \"settlement\": \"centro\",\r\n  \"location\": \"zapopan\",\r\n  \"postal_code\": \"44750\",\r\n  \"city\": \"zapopan\",\r\n  \"state\": \"jalisco\",\r\n  \"country\": \"mexico\",\r\n  \"mobil\": \"333\",\r\n  \"email\": \"dfgdfgdfg\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -264,7 +292,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoxLCJzdWIiOjEsImlhdCI6MTY3ODc3MjU4MywiZXhwIjoxNjc4ODU4OTgzfQ.pfE3QHNXpdu8RDBHzXRaQ8eV5Vh5isx17N1QywtTZS8",
+									"value": "{{JWT}}",
 									"type": "string"
 								}
 							]
@@ -292,7 +320,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoxLCJzdWIiOjEsImlhdCI6MTY3ODc3MjU4MywiZXhwIjoxNjc4ODU4OTgzfQ.pfE3QHNXpdu8RDBHzXRaQ8eV5Vh5isx17N1QywtTZS8",
+									"value": "{{JWT}}",
 									"type": "string"
 								}
 							]
@@ -300,14 +328,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{Nest}}/api/offices/5",
+							"raw": "{{Nest}}/api/offices/9",
 							"host": [
 								"{{Nest}}"
 							],
 							"path": [
 								"api",
 								"offices",
-								"5"
+								"9"
 							]
 						}
 					},
@@ -383,13 +411,540 @@
 			]
 		},
 		{
+			"name": "Warehouse",
+			"item": [
+				{
+					"name": "Warehouse Types",
+					"item": [
+						{
+							"name": "create",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Fisico\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{Nest}}/api/warehouse-type",
+									"host": [
+										"{{Nest}}"
+									],
+									"path": [
+										"api",
+										"warehouse-type"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "findAll",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Nest}}/api/warehouse-type",
+									"host": [
+										"{{Nest}}"
+									],
+									"path": [
+										"api",
+										"warehouse-type"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "findOne",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Nest}}/api/warehouse-type/1",
+									"host": [
+										"{{Nest}}"
+									],
+									"path": [
+										"api",
+										"warehouse-type",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Fisico 2\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{Nest}}/api/warehouse-type/1",
+									"host": [
+										"{{Nest}}"
+									],
+									"path": [
+										"api",
+										"warehouse-type",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{Nest}}/api/warehouse-type/1",
+									"host": [
+										"{{Nest}}"
+									],
+									"path": [
+										"api",
+										"warehouse-type",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Warehouse Locations",
+					"item": [
+						{
+							"name": "create",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"alias\": \"Default\",\r\n  \"floor\": \"1\",\r\n  \"aisle\": \"1\",\r\n  \"rack\": \"1\",\r\n  \"level\": \"1\",\r\n  \"bin\": \"2\",\r\n  \"is_default\": true,\r\n  \"warehouse_id\": 2\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{Nest}}/api/warehouse-location",
+									"host": [
+										"{{Nest}}"
+									],
+									"path": [
+										"api",
+										"warehouse-location"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "findAll",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Nest}}/api/warehouse-location",
+									"host": [
+										"{{Nest}}"
+									],
+									"path": [
+										"api",
+										"warehouse-location"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "findOne",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Nest}}/api/warehouse-location/1",
+									"host": [
+										"{{Nest}}"
+									],
+									"path": [
+										"api",
+										"warehouse-location",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"alias\": \"Default 2\",\r\n  \"floor\": \"1\",\r\n  \"aisle\": \"1\",\r\n  \"rack\": \"1\",\r\n  \"level\": \"1\",\r\n  \"bin\": \"2\",\r\n  \"is_default\": true,\r\n  \"warehouse_id\": 2\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{Nest}}/api/warehouse-location/2",
+									"host": [
+										"{{Nest}}"
+									],
+									"path": [
+										"api",
+										"warehouse-location",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{Nest}}/api/warehouse-location/2",
+									"host": [
+										"{{Nest}}"
+									],
+									"path": [
+										"api",
+										"warehouse-location",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "findByWarehouse",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Nest}}/api/warehouse-location/warehouse/1",
+									"host": [
+										"{{Nest}}"
+									],
+									"path": [
+										"api",
+										"warehouse-location",
+										"warehouse",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Almacen Principal\",\r\n  \"warehouse_type_id\": 1,\r\n  \"office_id\": 9,\r\n  \"is_active\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Nest}}/api/warehouse",
+							"host": [
+								"{{Nest}}"
+							],
+							"path": [
+								"api",
+								"warehouse"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findAll",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Nest}}/api/warehouse",
+							"host": [
+								"{{Nest}}"
+							],
+							"path": [
+								"api",
+								"warehouse"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findOne",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Nest}}/api/warehouse/2",
+							"host": [
+								"{{Nest}}"
+							],
+							"path": [
+								"api",
+								"warehouse",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Almacen Principal 2\",\r\n  \"warehouse_type_id\": 1,\r\n  \"office_id\": 9,\r\n  \"is_active\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Nest}}/api/warehouse/2",
+							"host": [
+								"{{Nest}}"
+							],
+							"path": [
+								"api",
+								"warehouse",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Nest}}/api/warehouse/2",
+							"host": [
+								"{{Nest}}"
+							],
+							"path": [
+								"api",
+								"warehouse",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "Login",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"userName\": \"jrmelecio\",\n    \"password\": \"secreto2023\"\n}",
+					"raw": "{\n    \"userName\": \"admin\",\n    \"password\": \"admin\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"

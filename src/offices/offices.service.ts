@@ -3,7 +3,6 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { plainToClass } from 'class-transformer';
 import { Repository } from 'typeorm';
 import { CreateOfficeDto } from './dto/create-office.dto';
-import { TestOfficeDto } from './dto/response-office.dto';
 import { UpdateOfficeDto } from './dto/update-office.dto';
 import { Office } from './entities/office.entity';
 import { OfficeType } from './entities/office-type.entity';
@@ -45,9 +44,9 @@ export class OfficesService {
       throw new NotFoundException(`office id:${id} not found`);
     }
 
-    const office = plainToClass(TestOfficeDto, officeFound);
-    return office;
-    //return officeFound;
+    //const office = plainToClass(TestOfficeDto, officeFound);
+    //return office;
+    return officeFound;
   }
 
   async update(id: number, data: UpdateOfficeDto) {

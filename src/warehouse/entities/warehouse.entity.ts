@@ -1,7 +1,7 @@
 import { Column, Entity, JoinColumn, ManyToOne, OneToMany } from 'typeorm';
 
 import { BaseEntity } from '../../common/entities/base.entity';
-import { WarehouseLocation } from './location.entity';
+import { WarehouseLocation } from './warehouse-location.entity';
 import { WarehouseType } from './warehouse-type.entity';
 import { Office } from '../../offices/entities/office.entity';
 
@@ -18,8 +18,8 @@ export class Warehouse extends BaseEntity {
   office: Office;
 
   @ManyToOne(() => WarehouseType, (warehouseType) => warehouseType.id)
-  @JoinColumn({ name: 'warehose_type_id' })
-  warehose_type: WarehouseType;
+  @JoinColumn({ name: 'warehouse_type_id' })
+  warehouse_type: WarehouseType;
 
   @OneToMany(() => WarehouseLocation, (warehoseLocation) => warehoseLocation.id)
   warehouse_location: WarehouseLocation[];
