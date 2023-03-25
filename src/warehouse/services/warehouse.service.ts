@@ -11,14 +11,16 @@ import { plainToClass } from 'class-transformer';
 
 @Injectable()
 export class WarehouseService {
-  constructor(@InjectRepository(Warehouse) private readonly warehouseRepository: Repository<Warehouse>,
-  private readonly officeService: OfficesService,
-  private readonly warehouseTypeService: WarehouseTypeService) {}
+  constructor(
+    @InjectRepository(Warehouse)
+    private readonly warehouseRepository: Repository<Warehouse>,
+    private readonly officeService: OfficesService,
+    private readonly warehouseTypeService: WarehouseTypeService) {}
 
   async create(data: CreateWarehouseDto) {
     const warehouseType = await this.warehouseTypeService.findOne(data.warehouse_type_id);
     const warehouseOffice = await this.officeService.findOne(data.office_id);
-    
+
     const warehose = plainToClass(Warehouse, data);
     warehose.office = warehouseOffice;
     warehose.warehouse_type = warehouseType;

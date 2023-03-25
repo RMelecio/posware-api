@@ -1,9 +1,8 @@
 {
 	"info": {
-		"_postman_id": "61ab45b3-f6a8-47c4-9f6f-c8d25df409a1",
+		"_postman_id": "5055bfdb-90b1-4f87-939c-9932b7f8e59a",
 		"name": "Posware-api",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "10457905"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
@@ -930,6 +929,393 @@
 								"api",
 								"warehouse",
 								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Customer",
+			"item": [
+				{
+					"name": "Customer Address",
+					"item": [
+						{
+							"name": "create",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"customer_id\": 1,\n  \"address\": \"string 2\",\n  \"settlement\": \"string\",\n  \"location\": \"string\",\n  \"postal_code\": \"12634\",\n  \"city\": \"string\",\n  \"state\": \"string\",\n  \"country\": \"string\",\n  \"is_billing\": true,\n  \"is_delivery\": true,\n  \"reference\": \"string\",\n  \"person_receives_name\": \"string\",\n  \"person_receives_mobil\": \"string\",\n  \"person_receives_email\": \"string\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{Nest}}/api/customer-addresses",
+									"host": [
+										"{{Nest}}"
+									],
+									"path": [
+										"api",
+										"customer-addresses"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "findAll",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{Nest}}/api/customer-addresses/",
+									"host": [
+										"{{Nest}}"
+									],
+									"path": [
+										"api",
+										"customer-addresses",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "findOne",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{Nest}}/api/customer-addresses/1",
+									"host": [
+										"{{Nest}}"
+									],
+									"path": [
+										"api",
+										"customer-addresses",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"string\",\n  \"customer_id\": 1,\n  \"address\": \"dfgdfgdfgdfg\",\n  \"settlement\": \"string\",\n  \"location\": \"string\",\n  \"postal_code\": \"12345\",\n  \"city\": \"string\",\n  \"state\": \"string\",\n  \"country\": \"string\",\n  \"is_billing\": true,\n  \"is_delivery\": true,\n  \"reference\": \"string\",\n  \"person_receives_name\": \"string\",\n  \"person_receives_mobil\": \"string\",\n  \"person_receives_email\": \"string\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{Nest}}/api/customer-addresses/1",
+									"host": [
+										"{{Nest}}"
+									],
+									"path": [
+										"api",
+										"customer-addresses",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{Nest}}/api/customer-addresses/2",
+									"host": [
+										"{{Nest}}"
+									],
+									"path": [
+										"api",
+										"customer-addresses",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "findByCustomer",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Nest}}/api/customer-addresses/findByCustomer/1",
+									"host": [
+										"{{Nest}}"
+									],
+									"path": [
+										"api",
+										"customer-addresses",
+										"findByCustomer",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"alias\": \"Prueba\",\n  \"name\": \"Cliente de Pruebas\",\n  \"middle_name\": \"es\",\n  \"last_name\": \"un\",\n  \"trade_name\": \"cliente de pruena\",\n  \"rfc\": \"SDFDF43554\",\n  \"customer_type_id\": 3,\n  \"mobil\": \"895623\",\n  \"email\": \"dfg@de.com\",\n  \"credit_amount\": 0,\n  \"credit_days\": 0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Nest}}/api/customers",
+							"host": [
+								"{{Nest}}"
+							],
+							"path": [
+								"api",
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findAll",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Nest}}/api/customers",
+							"host": [
+								"{{Nest}}"
+							],
+							"path": [
+								"api",
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findOne",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Nest}}/api/customers/1",
+							"host": [
+								"{{Nest}}"
+							],
+							"path": [
+								"api",
+								"customers",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"alias\": \"Prueba 2\",\n  \"name\": \"Cliente de Pruebas\",\n  \"middle_name\": \"es\",\n  \"last_name\": \"un\",\n  \"trade_name\": \"cliente de pruena\",\n  \"rfc\": \"SDFDF43554\",\n  \"customer_type_id\": 4,\n  \"mobil\": \"895623\",\n  \"email\": \"dfg@de.com\",\n  \"credit_amount\": 0,\n  \"credit_days\": 0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Nest}}/api/customers/1",
+							"host": [
+								"{{Nest}}"
+							],
+							"path": [
+								"api",
+								"customers",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{Nest}}/api/customers/1",
+							"host": [
+								"{{Nest}}"
+							],
+							"path": [
+								"api",
+								"customers",
+								"1"
 							]
 						}
 					},
