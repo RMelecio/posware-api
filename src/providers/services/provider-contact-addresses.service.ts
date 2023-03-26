@@ -77,4 +77,15 @@ export class ProviderContactAddressesService {
     }
     return await this.providerContactAddressRepository.softDelete(id);
   }
+
+  async findByProvider(id: number) {
+    const provider = await this.providerRepository.findOneBy({ id: id });
+    if (!provider) {
+      throw new NotFoundException(`Provider id:${id} not found`);
+    }
+
+    return await this.providerContactAddressRepository.find({
+      where: { provider: { id: provider.id }}
+    })
+  }
 }

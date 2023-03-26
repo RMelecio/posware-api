@@ -35,4 +35,9 @@ export class ProviderContactAddressesController {
   remove(@Param('id') id: number) {
     return this.providerContactAddressesService.remove(id);
   }
+
+  @Get('provider/:id')
+  findByProvider(@Param('id') id: number) {
+    return this.providerContactAddressesService.findByProvider(id);
+  }
 }
