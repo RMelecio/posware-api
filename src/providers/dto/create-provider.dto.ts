@@ -1,15 +1,14 @@
-import { ApiProperty } from '@nestjs/swagger';
-import { IsNotEmpty, IsNumber, IsString } from 'class-validator';
+import { ApiProperty } from "@nestjs/swagger";
+import { IsNotEmpty, IsNumber, IsString, MaxLength } from "class-validator";
 
-export class CreateCustomerDto {
+export class CreateProviderDto {
   @ApiProperty()
   @IsString()
   @IsNotEmpty()
-  readonly alias: string;
+  readonly alias: string
 
   @ApiProperty()
   @IsString()
-  @IsNotEmpty()
   readonly name: string;
 
   @ApiProperty()
@@ -41,10 +40,14 @@ export class CreateCustomerDto {
   readonly email: string;
 
   @ApiProperty()
-  @IsNumber()
-  readonly credit_amount: number;
+  @IsString()
+  readonly web_site: string;
 
   @ApiProperty()
   @IsNumber()
   readonly credit_days: number;
+
+  @ApiProperty()
+  @IsString()
+  readonly payment_conditions: string;
 }

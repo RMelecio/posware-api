@@ -11,8 +11,8 @@ import {
 import { ApiTags } from '@nestjs/swagger';
 
 import { JwtAuthGuard } from '../../auth/guards/jwt-auth.guard';
-import { CreateCustomerAddressDto } from '../dto/create-customer-address.dto';
-import { UpdateCustomerAddressDto } from '../dto/update-customer-address.dto';
+import { CreateCustomerContactAddressDto } from '../dto/create-customer-contact-address.dto';
+import { UpdateCustomerContactAddressDto } from '../dto/update-customer-contact-address.dto';
 import { CustomerAddressService } from '../services/customer-addresses.service';
 
 @ApiTags('Customer Addresses')
@@ -24,7 +24,7 @@ export class CustomerAddressController {
   ) {}
 
   @Post()
-  create(@Body() createCustomerAddressDto: CreateCustomerAddressDto) {
+  create(@Body() createCustomerAddressDto: CreateCustomerContactAddressDto) {
     return this.customerAddressService.create(createCustomerAddressDto);
   }
 
@@ -41,7 +41,7 @@ export class CustomerAddressController {
   @Patch(':id')
   update(
     @Param('id') id: string,
-    @Body() updateCustomerAddressDto: UpdateCustomerAddressDto,
+    @Body() updateCustomerAddressDto: UpdateCustomerContactAddressDto,
   ) {
     return this.customerAddressService.update(+id, updateCustomerAddressDto);
   }

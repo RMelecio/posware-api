@@ -4,7 +4,7 @@ import { plainToClass } from 'class-transformer';
 import { Repository } from 'typeorm';
 import { CreateCustomerDto } from '../dto/create-customer.dto';
 import { UpdateCustomerDto } from '../dto/update-customer.dto';
-import { CustomerType } from '../entities/customer-type.entity';
+import { PersonType } from '../../common/entities/person-types.entity';
 import { Customer } from '../entities/customer.entity';
 
 @Injectable()
@@ -12,22 +12,22 @@ export class CustomersService {
   constructor(
     @InjectRepository(Customer)
     private readonly customerRepository: Repository<Customer>,
-    @InjectRepository(CustomerType)
-    private readonly customerTypeRepository: Repository<CustomerType>,
+    @InjectRepository(PersonType)
+    private readonly personTypeRepository: Repository<PersonType>,
   ) {}
   async create(data: CreateCustomerDto) {
-    const customerType = await this.customerTypeRepository.findOneBy({
-      id: data.customer_type_id,
+    const customerType = await this.personTypeRepository.findOneBy({
+      id: data.person_type_id,
     });
 
     if (!customerType) {
       throw new NotFoundException(
-        `CustomerType id:${data.customer_type_id} not found`,
+        `CustomerType id:${data.person_type_id} not found`,
       );
     }
 
     const customer = plainToClass(Customer, data);
-    customer.customer_type = customerType;
+    customer.person_type = customerType;
 
     return this.customerRepository.save(customer);
   }
@@ -39,7 +39,7 @@ export class CustomersService {
   async findOne(id: number) {
     const customer = await this.customerRepository.findOne({
       where: { id: id },
-      relations: ['customer_type'],
+      relations: ['person_type'],
     });
     if (!customer) {
       throw new NotFoundException(`Customer id:${id} not found`);
@@ -52,17 +52,17 @@ export class CustomersService {
     if (!customer) {
       throw new NotFoundException(`Customer id:${id} not found`);
     }
-    const customerType = await this.customerTypeRepository.findOneBy({
-      id: data.customer_type_id,
+    const customerType = await this.personTypeRepository.findOneBy({
+      id: data.person_type_id,
     });
     if (!customerType) {
       throw new NotFoundException(
-        `CustomerType id:${data.customer_type_id} not found`,
+        `CustomerType id:${data.person_type_id} not found`,
       );
     }
 
     const updateCustomer = plainToClass(Customer, data);
-    updateCustomer.customer_type = customerType;
+    updateCustomer.person_type = customerType;
     this.customerRepository.merge(customer, updateCustomer);
     return await this.customerRepository.save(customer);
   }

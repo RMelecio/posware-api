@@ -1,7 +1,7 @@
 import { Column, Entity, JoinColumn, ManyToOne } from 'typeorm';
 
 import { BaseEntity } from '../../common/entities/base.entity';
-import { CustomerType } from './customer-type.entity';
+import { PersonType } from '../../common/entities/person-types.entity';
 
 @Entity({ name: 'customers' })
 export class Customer extends BaseEntity {
@@ -23,15 +23,18 @@ export class Customer extends BaseEntity {
   @Column({ length: 20, unique: true })
   rfc: string;
 
-  @ManyToOne(() => CustomerType, (customerType) => customerType.id)
-  @JoinColumn({ name: 'customer_type_id' })
-  customer_type: CustomerType;
+  @ManyToOne(() => PersonType, (personType) => personType.id)
+  @JoinColumn({ name: 'person_type_id' })
+  person_type: PersonType;
 
   @Column({ length: 20 })
   mobil: string;
 
   @Column({ length: 100 })
   email: string;
+
+  @Column({ nullable: true })
+  web_site: string;
 
   @Column()
   credit_amount: number;

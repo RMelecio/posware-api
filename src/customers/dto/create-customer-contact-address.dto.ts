@@ -7,15 +7,37 @@ import {
   MaxLength,
 } from 'class-validator';
 
-export class CreateCustomerAddressDto {
+export class CreateCustomerContactAddressDto {
+  @ApiProperty()
+  @IsNumber()
+  customer_id: number;
+
   @ApiProperty()
   @IsString()
   @IsNotEmpty()
   name: string;
 
   @ApiProperty()
-  @IsNumber()
-  customer_id: number;
+  @IsString()
+  person_title: string;
+
+  @ApiProperty()
+  @IsString()
+  @IsNotEmpty()
+  mobil: string;
+
+  @ApiProperty()
+  @IsString()
+  @IsNotEmpty()
+  email: string;
+
+  @ApiProperty()
+  @IsString()
+  job: string;
+
+  @ApiProperty()
+  @IsString()
+  notes: string;
 
   @ApiProperty()
   @IsString()
@@ -47,26 +69,7 @@ export class CreateCustomerAddressDto {
   country: string;
 
   @ApiProperty()
-  @IsBoolean()
-  is_billing: boolean;
-
-  @ApiProperty()
-  @IsBoolean()
-  is_delivery: boolean;
-
-  @ApiProperty()
   @IsString()
   reference: string;
 
-  @ApiProperty()
-  @IsString()
-  person_receives_name: string;
-
-  @ApiProperty()
-  @IsString()
-  person_receives_mobil: string;
-
-  @ApiProperty()
-  @IsString()
-  person_receives_email: string;
 }
