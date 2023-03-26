@@ -15,6 +15,7 @@ import { OfficesModule } from './offices/offices.module';
 import { WarehouseModule } from './warehouse/warehouse.module';
 import { CustomersModule } from './customers/customers.module';
 import { ProvidersModule } from './providers/providers.module';
+import { ProductsModule } from './products/products.module';
 
 @Module({
   imports: [
@@ -32,6 +33,7 @@ import { ProvidersModule } from './providers/providers.module';
     WarehouseModule,
     CustomersModule,
     ProvidersModule,
+    ProductsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
