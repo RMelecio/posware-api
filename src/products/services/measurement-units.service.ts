@@ -2,8 +2,8 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 
-import { CreateUnitMeasurementDto } from '../dto/create-unit-measurement.dto';
-import { UpdateUnitMeasurementDto } from '../dto/update-unit-measurement.dto';
+import { CreateMeasurementUnitDto } from '../dto/create-measurement-unit.dto';
+import { UpdateMeasurementUnitDto } from '../dto/update-measurement-unit.dto';
 import { MeasurementUnit } from '../entities/measurement-unit.entity';
 
 @Injectable()
@@ -12,7 +12,7 @@ export class MeasurementUnitsService {
     @InjectRepository(MeasurementUnit)
     private readonly measurementUnitRepository: Repository<MeasurementUnit>,
   ) {}
-  async create(data: CreateUnitMeasurementDto) {
+  async create(data: CreateMeasurementUnitDto) {
     return await this.measurementUnitRepository.save(data);
   }
 
@@ -23,15 +23,15 @@ export class MeasurementUnitsService {
   async findOne(id: number) {
     const unit = await this.measurementUnitRepository.findOneBy({ id: id });
     if (!unit) {
-      throw new NotFoundException(`Unit measurement id:${id} not found`);
+      throw new NotFoundException(`Measurement of unit id:${id} not found`);
     }
     return unit;
   }
 
-  async update(id: number, data: UpdateUnitMeasurementDto) {
+  async update(id: number, data: UpdateMeasurementUnitDto) {
     const unit = await this.measurementUnitRepository.findOneBy({ id: id });
     if (!unit) {
-      throw new NotFoundException(`Unit measurement id:${id} not found`);
+      throw new NotFoundException(`Measurement of unit id:${id} not found`);
     }
 
     this.measurementUnitRepository.merge(unit, data);
@@ -41,7 +41,7 @@ export class MeasurementUnitsService {
   async remove(id: number) {
     const unit = await this.measurementUnitRepository.findOneBy({ id: id });
     if (!unit) {
-      throw new NotFoundException(`Unit Measurement id:${id} not found`);
+      throw new NotFoundException(`Measurement of unit id:${id} not found`);
     }
     return await this.measurementUnitRepository.softDelete(id);
   }

@@ -1,7 +1,7 @@
-import { ApiProperty } from "@nestjs/swagger";
-import { IsNotEmpty, IsString } from "class-validator";
+import { ApiProperty } from '@nestjs/swagger';
+import { IsNotEmpty, IsString } from 'class-validator';
 
-export class CreateUnitMeasurementDto {
+export class CreateWeightUnitDto {
   @ApiProperty()
   @IsString()
   @IsNotEmpty()

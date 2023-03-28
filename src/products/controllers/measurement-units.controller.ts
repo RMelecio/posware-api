@@ -11,20 +11,20 @@ import {
 import { ApiTags } from '@nestjs/swagger';
 
 import { JwtAuthGuard } from '../../auth/guards/jwt-auth.guard';
-import { CreateUnitMeasurementDto } from '../dto/create-unit-measurement.dto';
-import { UpdateUnitMeasurementDto } from '../dto/update-unit-measurement.dto';
+import { CreateMeasurementUnitDto } from '../dto/create-measurement-unit.dto';
+import { UpdateMeasurementUnitDto } from '../dto/update-measurement-unit.dto';
 import { MeasurementUnitsService } from '../services/measurement-units.service';
 
-@ApiTags('Unit Measurements')
+@ApiTags('Measurement Units')
 @UseGuards(JwtAuthGuard)
-@Controller('unit-measurements')
+@Controller('measurement-units')
 export class MeasurementUnitsController {
   constructor(
     private readonly measurementUnitsService: MeasurementUnitsService,
   ) {}
 
   @Post()
-  create(@Body() createUnitMeasurementDto: CreateUnitMeasurementDto) {
+  create(@Body() createUnitMeasurementDto: CreateMeasurementUnitDto) {
     return this.measurementUnitsService.create(createUnitMeasurementDto);
   }
 
@@ -41,7 +41,7 @@ export class MeasurementUnitsController {
   @Patch(':id')
   update(
     @Param('id') id: string,
-    @Body() updateUnitMeasurementDto: UpdateUnitMeasurementDto,
+    @Body() updateUnitMeasurementDto: UpdateMeasurementUnitDto,
   ) {
     return this.measurementUnitsService.update(+id, updateUnitMeasurementDto);
   }
