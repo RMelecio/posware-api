@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsNotEmpty, IsString } from 'class-validator';
+import { IsNotEmpty, IsString, MaxLength } from 'class-validator';
 
 export class CreateWeightUnitDto {
   @ApiProperty()
@@ -14,5 +14,6 @@ export class CreateWeightUnitDto {
 
   @ApiProperty()
   @IsString()
+  @MaxLength(5)
   readonly symbol: string;
 }

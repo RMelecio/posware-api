@@ -1,9 +1,8 @@
 {
 	"info": {
-		"_postman_id": "b9119954-305c-4be9-8e78-47bd486e33db",
+		"_postman_id": "e16737da-9c50-4b26-9dd4-641426efb127",
 		"name": "Posware-api",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "10457905"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
@@ -2023,7 +2022,7 @@
 					]
 				},
 				{
-					"name": "Unit Measurements",
+					"name": "Measurement Units",
 					"item": [
 						{
 							"name": "create",
@@ -2050,13 +2049,13 @@
 									}
 								},
 								"url": {
-									"raw": "{{Nest}}/api/unit-measurements",
+									"raw": "{{Nest}}/api/measurement-units",
 									"host": [
 										"{{Nest}}"
 									],
 									"path": [
 										"api",
-										"unit-measurements"
+										"measurement-units"
 									]
 								}
 							},
@@ -2078,13 +2077,13 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{Nest}}/api/unit-measurements",
+									"raw": "{{Nest}}/api/measurement-units",
 									"host": [
 										"{{Nest}}"
 									],
 									"path": [
 										"api",
-										"unit-measurements"
+										"measurement-units"
 									]
 								}
 							},
@@ -2106,13 +2105,13 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{Nest}}/api/unit-measurements/1",
+									"raw": "{{Nest}}/api/measurement-units/1",
 									"host": [
 										"{{Nest}}"
 									],
 									"path": [
 										"api",
-										"unit-measurements",
+										"measurement-units",
 										"1"
 									]
 								}
@@ -2144,13 +2143,13 @@
 									}
 								},
 								"url": {
-									"raw": "{{Nest}}/api/unit-measurements/1",
+									"raw": "{{Nest}}/api/measurement-units/1",
 									"host": [
 										"{{Nest}}"
 									],
 									"path": [
 										"api",
-										"unit-measurements",
+										"measurement-units",
 										"1"
 									]
 								}
@@ -2173,13 +2172,345 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "{{Nest}}/api/unit-measurements/1",
+									"raw": "{{Nest}}/api/measurement-units/1",
 									"host": [
 										"{{Nest}}"
 									],
 									"path": [
 										"api",
-										"unit-measurements",
+										"measurement-units",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Weight Units",
+					"item": [
+						{
+							"name": "create",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"string\",\n  \"abbreviation\": \"string\",\n  \"symbol\": \"12345\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{Nest}}/api/weight-units",
+									"host": [
+										"{{Nest}}"
+									],
+									"path": [
+										"api",
+										"weight-units"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "findAll",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Nest}}/api/weight-units",
+									"host": [
+										"{{Nest}}"
+									],
+									"path": [
+										"api",
+										"weight-units"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "findOne",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Nest}}/api/weight-units/1",
+									"host": [
+										"{{Nest}}"
+									],
+									"path": [
+										"api",
+										"weight-units",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"string 2\",\n  \"abbreviation\": \"string\",\n  \"symbol\": \"12345\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{Nest}}/api/weight-units/1",
+									"host": [
+										"{{Nest}}"
+									],
+									"path": [
+										"api",
+										"weight-units",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{Nest}}/api/weight-units/1",
+									"host": [
+										"{{Nest}}"
+									],
+									"path": [
+										"api",
+										"weight-units",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Volume Units",
+					"item": [
+						{
+							"name": "create",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"string\",\n  \"abbreviation\": \"string\",\n  \"symbol\": \"12345\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{Nest}}/api/volume-units",
+									"host": [
+										"{{Nest}}"
+									],
+									"path": [
+										"api",
+										"volume-units"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "findAll",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Nest}}/api/volume-units",
+									"host": [
+										"{{Nest}}"
+									],
+									"path": [
+										"api",
+										"volume-units"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "findOne",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Nest}}/api/volume-units/1",
+									"host": [
+										"{{Nest}}"
+									],
+									"path": [
+										"api",
+										"volume-units",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"string 3\",\n  \"abbreviation\": \"string\",\n  \"symbol\": \"12345\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{Nest}}/api/volume-units/1",
+									"host": [
+										"{{Nest}}"
+									],
+									"path": [
+										"api",
+										"volume-units",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{Nest}}/api/volume-units/1",
+									"host": [
+										"{{Nest}}"
+									],
+									"path": [
+										"api",
+										"volume-units",
 										"1"
 									]
 								}
