@@ -4,21 +4,24 @@ import { Repository } from 'typeorm';
 
 import { CreateUnitMeasurementDto } from '../dto/create-unit-measurement.dto';
 import { UpdateUnitMeasurementDto } from '../dto/update-unit-measurement.dto';
-import { UnitMeasurement } from '../entities/unit-measurement.entity';
+import { MeasurementUnit } from '../entities/measurement-unit.entity';
 
 @Injectable()
-export class UnitMeasurementsService {
-  constructor(@InjectRepository(UnitMeasurement) private readonly unitMeasurementRepository: Repository<UnitMeasurement>) {}
+export class MeasurementUnitsService {
+  constructor(
+    @InjectRepository(MeasurementUnit)
+    private readonly measurementUnitRepository: Repository<MeasurementUnit>,
+  ) {}
   async create(data: CreateUnitMeasurementDto) {
-    return await this.unitMeasurementRepository.save(data);
+    return await this.measurementUnitRepository.save(data);
   }
 
   async findAll() {
-    return await this.unitMeasurementRepository.find();
+    return await this.measurementUnitRepository.find();
   }
 
   async findOne(id: number) {
-    const unit = await this.unitMeasurementRepository.findOneBy({ id: id });
+    const unit = await this.measurementUnitRepository.findOneBy({ id: id });
     if (!unit) {
       throw new NotFoundException(`Unit measurement id:${id} not found`);
     }
@@ -26,20 +29,20 @@ export class UnitMeasurementsService {
   }
 
   async update(id: number, data: UpdateUnitMeasurementDto) {
-    const unit = await this.unitMeasurementRepository.findOneBy({ id: id });
+    const unit = await this.measurementUnitRepository.findOneBy({ id: id });
     if (!unit) {
       throw new NotFoundException(`Unit measurement id:${id} not found`);
     }
 
-    this.unitMeasurementRepository.merge(unit, data);
-    return await this.unitMeasurementRepository.save(unit);
+    this.measurementUnitRepository.merge(unit, data);
+    return await this.measurementUnitRepository.save(unit);
   }
 
   async remove(id: number) {
-    const unit = await this.unitMeasurementRepository.findOneBy({ id: id });
+    const unit = await this.measurementUnitRepository.findOneBy({ id: id });
     if (!unit) {
       throw new NotFoundException(`Unit Measurement id:${id} not found`);
     }
-    return await this.unitMeasurementRepository.softDelete(id);
+    return await this.measurementUnitRepository.softDelete(id);
   }
 }

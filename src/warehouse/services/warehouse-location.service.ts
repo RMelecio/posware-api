@@ -1,4 +1,8 @@
-import { BadRequestException, HttpStatus, Injectable, NotFoundException } from '@nestjs/common';
+import {
+  BadRequestException,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import * as crypto from 'crypto';
@@ -9,8 +13,11 @@ import { WarehouseService } from './warehouse.service';
 
 @Injectable()
 export class WarehouseLocationService {
-  constructor(@InjectRepository(WarehouseLocation) private warehouseLocationRepository: Repository<WarehouseLocation>,
-  private readonly warehouseService: WarehouseService) {}
+  constructor(
+    @InjectRepository(WarehouseLocation)
+    private warehouseLocationRepository: Repository<WarehouseLocation>,
+    private readonly warehouseService: WarehouseService,
+  ) {}
 
   async create(data: UpdateWarehouseLocationDto) {
     const newLocation = this.warehouseLocationRepository.create(data);
@@ -31,7 +38,9 @@ export class WarehouseLocationService {
   }
 
   async findOne(id: number) {
-    const location = await this.warehouseLocationRepository.findOneBy({ id: id });
+    const location = await this.warehouseLocationRepository.findOneBy({
+      id: id,
+    });
     if (!location) {
       throw new NotFoundException(`Location id: ${id} not found`);
     }
@@ -40,17 +49,21 @@ export class WarehouseLocationService {
   }
 
   async update(id: number, data: UpdateWarehouseLocationDto) {
-    const location = await this.warehouseLocationRepository.findOneBy({ id: id });
+    const location = await this.warehouseLocationRepository.findOneBy({
+      id: id,
+    });
     if (!location) {
       throw new NotFoundException(`Location id: ${id} not found`);
     }
-    
+
     this.warehouseLocationRepository.merge(location, data);
     return this.warehouseLocationRepository.save(location);
   }
 
   async remove(id: number) {
-    const location = await this.warehouseLocationRepository.findOneBy({ id: id});
+    const location = await this.warehouseLocationRepository.findOneBy({
+      id: id,
+    });
     if (!location) {
       throw new NotFoundException(`Local id: ${id} not found`);
     }
@@ -58,12 +71,16 @@ export class WarehouseLocationService {
   }
 
   async findByHash(data: string) {
-    const hash = await this.warehouseLocationRepository.findOneBy({ hash: data });
-    return hash ? true: false;
+    const hash = await this.warehouseLocationRepository.findOneBy({
+      hash: data,
+    });
+    return hash ? true : false;
   }
 
   async findByWarehouse(warehouseId: number) {
     const warehouse = await this.warehouseService.findOne(warehouseId);
-    return await this.warehouseLocationRepository.find({ where: { warehouse: {id: warehouse.id}} });
+    return await this.warehouseLocationRepository.find({
+      where: { warehouse: { id: warehouse.id } },
+    });
   }
 }

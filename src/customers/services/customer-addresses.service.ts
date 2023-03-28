@@ -30,7 +30,9 @@ export class CustomerAddressService {
   }
 
   async findOne(id: number) {
-    const address = await this.customerContactAddressRespository.findOneBy({ id: id });
+    const address = await this.customerContactAddressRespository.findOneBy({
+      id: id,
+    });
     if (!address) {
       throw new NotFoundException(`Address id:${id} not found`);
     }
@@ -38,7 +40,9 @@ export class CustomerAddressService {
   }
 
   async update(id: number, data: UpdateCustomerContactAddressDto) {
-    const address = await this.customerContactAddressRespository.findOneBy({ id: id });
+    const address = await this.customerContactAddressRespository.findOneBy({
+      id: id,
+    });
     const customer = await this.customerRepositoy.findOneBy({
       id: data.customer_id,
     });
@@ -55,7 +59,9 @@ export class CustomerAddressService {
   }
 
   async remove(id: number) {
-    const address = await this.customerContactAddressRespository.findOneBy({ id: id });
+    const address = await this.customerContactAddressRespository.findOneBy({
+      id: id,
+    });
     if (!address) {
       throw new NotFoundException(`Address id:${id} not found`);
     }

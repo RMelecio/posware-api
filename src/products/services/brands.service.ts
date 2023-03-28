@@ -8,11 +8,14 @@ import { Brand } from '../entities/brand.entity';
 
 @Injectable()
 export class BrandsService {
-  constructor(@InjectRepository(Brand) private readonly brandRepository: Repository<Brand>) {}
+  constructor(
+    @InjectRepository(Brand)
+    private readonly brandRepository: Repository<Brand>,
+  ) {}
   async create(data: CreateBrandDto) {
     const newBrand = plainToClass(Brand, data);
     const slug = data.name.toLowerCase();
-    newBrand.slug = slug.replace(/\s+/g, "-");
+    newBrand.slug = slug.replace(/\s+/g, '-');
     return await this.brandRepository.save(newBrand);
   }
 
@@ -33,10 +36,10 @@ export class BrandsService {
     if (!brand) {
       throw new NotFoundException(`Brand id:${id} not found`);
     }
-    
+
     const newData = plainToClass(Brand, data);
     const slug = data.name.toLowerCase();
-    newData.slug = slug.replace(/\s+/g, "-");
+    newData.slug = slug.replace(/\s+/g, '-');
     this.brandRepository.merge(brand, newData);
     return await this.brandRepository.save(brand);
   }

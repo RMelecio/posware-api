@@ -1,8 +1,8 @@
 import { Column, Entity } from 'typeorm';
 import { BaseEntity } from '../../common/entities/base.entity';
 
-@Entity({ name: 'unit_measurements' })
-export class UnitMeasurement extends BaseEntity {
+@Entity({ name: 'measurement_units' })
+export class MeasurementUnit extends BaseEntity {
   @Column()
   name: string;
 

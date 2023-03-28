@@ -9,20 +9,27 @@ import { Category } from '../entities/category.entity';
 
 @Injectable()
 export class CategoriesService {
-  constructor(@InjectRepository(Category) private readonly categoryRepository: Repository<Category>) {}
+  constructor(
+    @InjectRepository(Category)
+    private readonly categoryRepository: Repository<Category>,
+  ) {}
   async create(data: CreateCategoryDto) {
     let parentCategory = null;
     if (data.parent_category_id) {
-      parentCategory = await this.categoryRepository.findOneBy({ id: data.parent_category_id });
+      parentCategory = await this.categoryRepository.findOneBy({
+        id: data.parent_category_id,
+      });
       if (!parentCategory) {
-        throw new NotFoundException(`Category parent id:${data.parent_category_id} not found`);
+        throw new NotFoundException(
+          `Category parent id:${data.parent_category_id} not found`,
+        );
       }
     }
 
     const newCategory = plainToClass(Category, data);
     newCategory.parent_category = parentCategory;
     const slug = newCategory.name.toLowerCase();
-    newCategory.slug = slug.replace(/\s+/g, "-");
+    newCategory.slug = slug.replace(/\s+/g, '-');
     return await this.categoryRepository.save(newCategory);
   }
 
@@ -32,7 +39,7 @@ export class CategoriesService {
 
   async findOne(id: number) {
     const category = await this.categoryRepository.find({
-      where: { id: id }, 
+      where: { id: id },
       //relations: ['category_parent']
     });
     if (!category) {
@@ -49,16 +56,20 @@ export class CategoriesService {
     }
 
     if (data.parent_category_id) {
-      parentCategory = await this.categoryRepository.findOneBy({ id: data.parent_category_id });
+      parentCategory = await this.categoryRepository.findOneBy({
+        id: data.parent_category_id,
+      });
       if (!parentCategory) {
-        throw new NotFoundException(`Category parent id:${data.parent_category_id} not found`);
+        throw new NotFoundException(
+          `Category parent id:${data.parent_category_id} not found`,
+        );
       }
     }
 
     const dataUpdate = plainToClass(Category, data);
     dataUpdate.parent_category = parentCategory;
     const slug = dataUpdate.name.toLowerCase();
-    dataUpdate.slug = slug.replace(/\s+/g, "-");
+    dataUpdate.slug = slug.replace(/\s+/g, '-');
     this.categoryRepository.merge(category, dataUpdate);
     return this.categoryRepository.save(category);
   }
