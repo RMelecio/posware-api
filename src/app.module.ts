@@ -16,6 +16,7 @@ import { WarehouseModule } from './warehouse/warehouse.module';
 import { CustomersModule } from './customers/customers.module';
 import { ProvidersModule } from './providers/providers.module';
 import { ProductsModule } from './products/products.module';
+import { ParametersModule } from './parameters/parameters.module';
 
 @Module({
   imports: [
@@ -34,6 +35,7 @@ import { ProductsModule } from './products/products.module';
     CustomersModule,
     ProvidersModule,
     ProductsModule,
+    ParametersModule,
   ],
   controllers: [AppController],
   providers: [AppService],

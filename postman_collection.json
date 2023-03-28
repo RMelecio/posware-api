@@ -1,8 +1,9 @@
 {
 	"info": {
-		"_postman_id": "5055bfdb-90b1-4f87-939c-9932b7f8e59a",
+		"_postman_id": "b9119954-305c-4be9-8e78-47bd486e33db",
 		"name": "Posware-api",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10457905"
 	},
 	"item": [
 		{
@@ -1315,6 +1316,971 @@
 							"path": [
 								"api",
 								"customers",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Providers",
+			"item": [
+				{
+					"name": "Provider Addresses",
+					"item": [
+						{
+							"name": "create",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"provider_id\": 1,\r\n  \"contact_address_type_id\": 5,\r\n  \"name\": \"string\",\r\n  \"person_title\": \"string\",\r\n  \"mobil\": \"string\",\r\n  \"email\": \"string\",\r\n  \"job\": \"string\",\r\n  \"notes\": \"string\",\r\n  \"address\": \"string\",\r\n  \"settlement\": \"string\",\r\n  \"location\": \"string\",\r\n  \"postal_code\": \"12345\",\r\n  \"city\": \"string\",\r\n  \"state\": \"string\",\r\n  \"country\": \"string\",\r\n  \"reference\": \"string\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{Nest}}/api/provider-addresses",
+									"host": [
+										"{{Nest}}"
+									],
+									"path": [
+										"api",
+										"provider-addresses"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "findAll",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Nest}}/api/provider-addresses",
+									"host": [
+										"{{Nest}}"
+									],
+									"path": [
+										"api",
+										"provider-addresses"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "findOne",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Nest}}/api/provider-addresses/1",
+									"host": [
+										"{{Nest}}"
+									],
+									"path": [
+										"api",
+										"provider-addresses",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"provider_id\": 1,\r\n  \"contact_address_type_id\": 5,\r\n  \"name\": \"strinssdsdfdsdsg\",\r\n  \"person_title\": \"string\",\r\n  \"mobil\": \"string\",\r\n  \"email\": \"string\",\r\n  \"job\": \"string\",\r\n  \"notes\": \"string\",\r\n  \"address\": \"string\",\r\n  \"settlement\": \"string\",\r\n  \"location\": \"string\",\r\n  \"postal_code\": \"12345\",\r\n  \"city\": \"string\",\r\n  \"state\": \"string\",\r\n  \"country\": \"string\",\r\n  \"reference\": \"string\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{Nest}}/api/provider-addresses/1",
+									"host": [
+										"{{Nest}}"
+									],
+									"path": [
+										"api",
+										"provider-addresses",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{Nest}}/api/provider-addresses/1",
+									"host": [
+										"{{Nest}}"
+									],
+									"path": [
+										"api",
+										"provider-addresses",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "findByProvider",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Nest}}/api/provider-addresses/provider/1",
+									"host": [
+										"{{Nest}}"
+									],
+									"path": [
+										"api",
+										"provider-addresses",
+										"provider",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"alias\": \"string\",\r\n  \"name\": \"string\",\r\n  \"middle_name\": \"string\",\r\n  \"last_name\": \"string\",\r\n  \"trade_name\": \"string\",\r\n  \"rfc\": \"string\",\r\n  \"person_type_id\": 3,\r\n  \"mobil\": \"string\",\r\n  \"email\": \"string\",\r\n  \"web_site\": \"string\",\r\n  \"credit_days\": 0,\r\n  \"payment_conditions\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Nest}}/api/providers/",
+							"host": [
+								"{{Nest}}"
+							],
+							"path": [
+								"api",
+								"providers",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findAll",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Nest}}/api/providers",
+							"host": [
+								"{{Nest}}"
+							],
+							"path": [
+								"api",
+								"providers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findOne",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Nest}}/api/providers/1",
+							"host": [
+								"{{Nest}}"
+							],
+							"path": [
+								"api",
+								"providers",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"alias\": \"string 2\",\r\n  \"name\": \"string\",\r\n  \"middle_name\": \"string\",\r\n  \"last_name\": \"string\",\r\n  \"trade_name\": \"string\",\r\n  \"rfc\": \"string\",\r\n  \"person_type_id\": 3,\r\n  \"mobil\": \"string\",\r\n  \"email\": \"string\",\r\n  \"web_site\": \"string\",\r\n  \"credit_days\": 0,\r\n  \"payment_conditions\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Nest}}/api/providers/1",
+							"host": [
+								"{{Nest}}"
+							],
+							"path": [
+								"api",
+								"providers",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{Nest}}/api/providers/1",
+							"host": [
+								"{{Nest}}"
+							],
+							"path": [
+								"api",
+								"providers",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Brands",
+					"item": [
+						{
+							"name": "create",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Coca Cola\",\r\n  \"image_url\": \"sdfsdfsdfsdfsdfsdf\",\r\n  \"is_active\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{Nest}}/api/brands",
+									"host": [
+										"{{Nest}}"
+									],
+									"path": [
+										"api",
+										"brands"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "findAll",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Nest}}/api/brands",
+									"host": [
+										"{{Nest}}"
+									],
+									"path": [
+										"api",
+										"brands"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "findOne",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Nest}}/api/brands/1",
+									"host": [
+										"{{Nest}}"
+									],
+									"path": [
+										"api",
+										"brands",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Pepsico and CO\",\r\n    \"image_url\": \"sdfsdfsdfsdfsdfsdf\",\r\n  \"is_active\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{Nest}}/api/brands/1",
+									"host": [
+										"{{Nest}}"
+									],
+									"path": [
+										"api",
+										"brands",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{Nest}}/api/brands/1",
+									"host": [
+										"{{Nest}}"
+									],
+									"path": [
+										"api",
+										"brands",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Categories",
+					"item": [
+						{
+							"name": "create",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Celulares Gama Alta\",\r\n  \"image_url\": \"asdadsadadad\",\r\n  \"parent_category_id\": 1,\r\n  \"returnable_days\": 10,\r\n  \"is_active\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{Nest}}/api/categories",
+									"host": [
+										"{{Nest}}"
+									],
+									"path": [
+										"api",
+										"categories"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "findAll",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Nest}}/api/categories",
+									"host": [
+										"{{Nest}}"
+									],
+									"path": [
+										"api",
+										"categories"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "findOne",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Nest}}/api/categories/1",
+									"host": [
+										"{{Nest}}"
+									],
+									"path": [
+										"api",
+										"categories",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Celulares Gama Alta Chidos\",\r\n  \"image_url\": \"asdadsadadad\",\r\n  \"parent_category_id\": 1,\r\n  \"returnable_days\": 10,\r\n  \"is_active\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{Nest}}/api/categories/1",
+									"host": [
+										"{{Nest}}"
+									],
+									"path": [
+										"api",
+										"categories",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{Nest}}/api/categories/1",
+									"host": [
+										"{{Nest}}"
+									],
+									"path": [
+										"api",
+										"categories",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Unit Measurements",
+					"item": [
+						{
+							"name": "create",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Pieza\",\r\n  \"abbreviation\": \"pz\",\r\n  \"symbol\": \"pz.\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{Nest}}/api/unit-measurements",
+									"host": [
+										"{{Nest}}"
+									],
+									"path": [
+										"api",
+										"unit-measurements"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "findAll",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Nest}}/api/unit-measurements",
+									"host": [
+										"{{Nest}}"
+									],
+									"path": [
+										"api",
+										"unit-measurements"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "findOne",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Nest}}/api/unit-measurements/1",
+									"host": [
+										"{{Nest}}"
+									],
+									"path": [
+										"api",
+										"unit-measurements",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Pieza 2\",\r\n  \"abbreviation\": \"pz2\",\r\n  \"symbol\": \"pz2.\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{Nest}}/api/unit-measurements/1",
+									"host": [
+										"{{Nest}}"
+									],
+									"path": [
+										"api",
+										"unit-measurements",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{Nest}}/api/unit-measurements/1",
+									"host": [
+										"{{Nest}}"
+									],
+									"path": [
+										"api",
+										"unit-measurements",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Parameters",
+			"item": [
+				{
+					"name": "findAll",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Nest}}/api/parameters",
+							"host": [
+								"{{Nest}}"
+							],
+							"path": [
+								"api",
+								"parameters"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findOne",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Nest}}/api/parameters",
+							"host": [
+								"{{Nest}}"
+							],
+							"path": [
+								"api",
+								"parameters"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"selected_value\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Nest}}/api/parameters/1",
+							"host": [
+								"{{Nest}}"
+							],
+							"path": [
+								"api",
+								"parameters",
 								"1"
 							]
 						}
