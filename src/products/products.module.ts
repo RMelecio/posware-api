@@ -7,6 +7,9 @@ import { Category } from './entities/category.entity';
 import { MeasurementUnit } from './entities/measurement-unit.entity';
 import { WeightUnit } from './entities/weight-unit.entity';
 import { VolumeUnit } from './entities/volume-unit.entity';
+import { ProductStatus } from './entities/product-status.entity';
+import { ProductType } from './entities/product-type.entity';
+import { LengthUnit } from './entities/length-unit.entity';
 
 import { ProductsService } from './services/products.service';
 import { BrandsService } from './services/brands.service';
@@ -31,6 +34,9 @@ import { VolumeUnitsController } from './controllers/volume-units.controller';
       MeasurementUnit,
       WeightUnit,
       VolumeUnit,
+      LengthUnit,
+      ProductStatus,
+      ProductType,
     ]),
   ],
   controllers: [

@@ -1,8 +1,9 @@
 {
 	"info": {
-		"_postman_id": "e16737da-9c50-4b26-9dd4-641426efb127",
+		"_postman_id": "5a5b9d36-88bb-4c32-8f9f-dd25f79ed3d7",
 		"name": "Posware-api",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10457905"
 	},
 	"item": [
 		{
@@ -2518,6 +2519,167 @@
 							"response": []
 						}
 					]
+				},
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"brand_id\": 0,\r\n  \"category_id\": 0,\r\n  \"status_id\": 0,\r\n  \"short_name\": \"string\",\r\n  \"name\": \"string\",\r\n  \"full_name\": \"string\",\r\n  \"url_imagen\": \"string\",\r\n  \"upc\": \"string\",\r\n  \"part_number\": \"string\",\r\n  \"has_serial_number\": true,\r\n  \"measurement_unit_id\": 0,\r\n  \"has_taxes\": true,\r\n  \"product_type_id\": 0,\r\n  \"returnable_days\": 0,\r\n  \"warranty_days\": 0,\r\n  \"default_price\": 0,\r\n  \"default_cost\": 0,\r\n  \"weight_unit_id\": 0,\r\n  \"weight\": 0,\r\n  \"volumen_unit_id\": 0,\r\n  \"volumen\": 0,\r\n  \"length_unit_id\": 0,\r\n  \"length\": 0,\r\n  \"width\": 0,\r\n  \"is_purchasable\": true,\r\n  \"cfdi_prodserv_code\": \"string\",\r\n  \"cfdi_unit_code\": \"string\",\r\n  \"max_stock\": 0,\r\n  \"min_stock\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Nest}}/api/products",
+							"host": [
+								"{{Nest}}"
+							],
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findAll",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Nest}}/api/products",
+							"host": [
+								"{{Nest}}"
+							],
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findOne",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Nest}}/api/products/1",
+							"host": [
+								"{{Nest}}"
+							],
+							"path": [
+								"api",
+								"products",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"brand_id\": 0,\r\n  \"category_id\": 0,\r\n  \"status_id\": 0,\r\n  \"short_name\": \"string\",\r\n  \"name\": \"string\",\r\n  \"full_name\": \"string\",\r\n  \"url_imagen\": \"string\",\r\n  \"upc\": \"string\",\r\n  \"part_number\": \"string\",\r\n  \"has_serial_number\": true,\r\n  \"measurement_unit_id\": 0,\r\n  \"has_taxes\": true,\r\n  \"product_type_id\": 0,\r\n  \"returnable_days\": 0,\r\n  \"warranty_days\": 0,\r\n  \"default_price\": 0,\r\n  \"default_cost\": 0,\r\n  \"weight_unit_id\": 0,\r\n  \"weight\": 0,\r\n  \"volumen_unit_id\": 0,\r\n  \"volumen\": 0,\r\n  \"length_unit_id\": 0,\r\n  \"length\": 0,\r\n  \"width\": 0,\r\n  \"is_purchasable\": true,\r\n  \"cfdi_prodserv_code\": \"string\",\r\n  \"cfdi_unit_code\": \"string\",\r\n  \"max_stock\": 0,\r\n  \"min_stock\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Nest}}/api/products/1",
+							"host": [
+								"{{Nest}}"
+							],
+							"path": [
+								"api",
+								"products",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{Nest}}/api/products/1",
+							"host": [
+								"{{Nest}}"
+							],
+							"path": [
+								"api",
+								"products",
+								"1"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},

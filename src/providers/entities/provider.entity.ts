@@ -4,10 +4,10 @@ import { BaseEntity } from '../../common/entities/base.entity';
 import { PersonType } from '../../common/entities/person-types.entity';
 import { ProviderContactAddress } from './provider-contact-address.entity';
 
-@Entity({name: 'providers' })
+@Entity({ name: 'providers' })
 export class Provider extends BaseEntity {
   @Column()
-  alias:string
+  alias: string;
 
   @Column({ nullable: true })
   name: string;
@@ -43,6 +43,9 @@ export class Provider extends BaseEntity {
   @Column({ nullable: true })
   payment_conditions: string;
 
-  @OneToMany(() => ProviderContactAddress, (providerContactAddress) => providerContactAddress.provider)
+  @OneToMany(
+    () => ProviderContactAddress,
+    (providerContactAddress) => providerContactAddress.provider,
+  )
   provider_contact_addresses: ProviderContactAddress[];
 }
